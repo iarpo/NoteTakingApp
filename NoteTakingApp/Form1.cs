@@ -95,6 +95,7 @@ namespace NoteTakingApp
             noteBox.Text = "";
             editing = false;
             newDoc = true;
+            titleBox.Focus();
         }
 
         private void previousNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
