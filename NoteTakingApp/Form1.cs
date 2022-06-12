@@ -42,8 +42,6 @@ namespace NoteTakingApp
             noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
             editing = true;
 
-            // BUG: App crashes when trying to load blank column in dataTable
-            // if ( string.IsNullOrEmpty(notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"].ToString()) )
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -84,7 +82,11 @@ namespace NoteTakingApp
 
         private void previousNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            loadButton_Click(sender, e);
+            if (e.RowIndex.ToString() == String.Empty)
+                loadButton_Click(sender, e);
+
+            // BUG: App crashes when trying to load blank column in dataTable
+            // if ( string.IsNullOrEmpty(notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"].ToString()) )
         }
     }
 }
