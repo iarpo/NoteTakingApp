@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteTaker));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.titleBox = new System.Windows.Forms.TextBox();
             this.noteBox = new System.Windows.Forms.TextBox();
@@ -41,7 +42,12 @@
             this.newButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.iarpoAvatar = new System.Windows.Forms.PictureBox();
+            this.avatarBlank = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBlank)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -97,9 +103,9 @@
             this.previousNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.previousNotes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.previousNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousNotes.Location = new System.Drawing.Point(570, 95);
+            this.previousNotes.Location = new System.Drawing.Point(570, 114);
             this.previousNotes.Name = "previousNotes";
-            this.previousNotes.Size = new System.Drawing.Size(310, 259);
+            this.previousNotes.Size = new System.Drawing.Size(310, 240);
             this.previousNotes.TabIndex = 5;
             this.previousNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellDoubleClick);
             // 
@@ -148,31 +154,73 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label3.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label3.Location = new System.Drawing.Point(728, 37);
+            this.label3.Location = new System.Drawing.Point(647, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 23);
             this.label3.TabIndex = 10;
             this.label3.Text = "Save: Ctrl + S";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label4.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label4.Location = new System.Drawing.Point(728, 60);
+            this.label4.Location = new System.Drawing.Point(650, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 23);
             this.label4.TabIndex = 11;
             this.label4.Text = "New: Ctrl + N";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label5.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
+            this.label5.Location = new System.Drawing.Point(647, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 23);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Load: Ctrl + O";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // iarpoAvatar
+            // 
+            this.iarpoAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iarpoAvatar.Image = ((System.Drawing.Image)(resources.GetObject("iarpoAvatar.Image")));
+            this.iarpoAvatar.Location = new System.Drawing.Point(805, 38);
+            this.iarpoAvatar.Margin = new System.Windows.Forms.Padding(0);
+            this.iarpoAvatar.Name = "iarpoAvatar";
+            this.iarpoAvatar.Size = new System.Drawing.Size(71, 70);
+            this.iarpoAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iarpoAvatar.TabIndex = 13;
+            this.iarpoAvatar.TabStop = false;
+            this.iarpoAvatar.Click += new System.EventHandler(this.iarpoAvatar_Click);
+            this.iarpoAvatar.MouseEnter += new System.EventHandler(this.iarpoAvatar_MouseEnter);
+            this.iarpoAvatar.MouseLeave += new System.EventHandler(this.iarpoAvatar_MouseLeave);
+            // 
+            // avatarBlank
+            // 
+            this.avatarBlank.Image = ((System.Drawing.Image)(resources.GetObject("avatarBlank.Image")));
+            this.avatarBlank.Location = new System.Drawing.Point(570, 37);
+            this.avatarBlank.Margin = new System.Windows.Forms.Padding(0);
+            this.avatarBlank.Name = "avatarBlank";
+            this.avatarBlank.Size = new System.Drawing.Size(71, 70);
+            this.avatarBlank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatarBlank.TabIndex = 14;
+            this.avatarBlank.TabStop = false;
+            this.avatarBlank.Click += new System.EventHandler(this.avatarBlank_Click);
             // 
             // NoteTaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(933, 554);
+            this.ClientSize = new System.Drawing.Size(909, 492);
+            this.Controls.Add(this.avatarBlank);
+            this.Controls.Add(this.iarpoAvatar);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.newButton);
@@ -187,7 +235,10 @@
             this.Name = "NoteTaker";
             this.Text = "NoteTaker";
             this.Load += new System.EventHandler(this.NoteTaker_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteTaker_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBlank)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,6 +258,9 @@
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox iarpoAvatar;
+        private System.Windows.Forms.PictureBox avatarBlank;
     }
 }
 
