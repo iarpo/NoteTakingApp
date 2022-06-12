@@ -87,7 +87,6 @@ namespace NoteTakingApp
 
             // BUG: App crashes when trying to load blank column in dataTable
             // if ( string.IsNullOrEmpty(notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"].ToString()) )
-
         }
     }
 }
