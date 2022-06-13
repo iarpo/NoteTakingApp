@@ -13,10 +13,7 @@ namespace NoteTakingApp
     // TODO restore items from recyle bin to dataGridView
     // TODO improve UI of dataSource - nice fonts, don't show cells, show a nice editing indicator
     // TODO Write files to the containing folder so they persist between sessions
-    // TODO open dataGridView item when double clicked
     
-
-
     public partial class NoteTaker : Form
     {
 
@@ -76,10 +73,6 @@ namespace NoteTakingApp
                 Console.WriteLine($"Not a valid note: {ex}");
                 throw;
             }
-
-            // TODO: cache deleted notes within this session
-            // TODO: show deleted notes in a deleted items area
-            // TODO: give the option to restore deleted notes
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -124,11 +117,8 @@ namespace NoteTakingApp
 
         private void previousNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex.ToString() == String.Empty)
+            if (e.RowIndex.ToString() != String.Empty)
                 loadButton_Click(sender, e);
-
-            // BUG: App crashes when trying to load blank column in dataTable
-            // if ( string.IsNullOrEmpty(notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"].ToString()) )
         }
 
 
