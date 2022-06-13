@@ -19,6 +19,7 @@ namespace NoteTakingApp
 
         DataTable notes = new DataTable();
         DataTable deletedNotes = new DataTable();
+
         bool editing = false;
         bool newDoc = true;
 
@@ -42,7 +43,7 @@ namespace NoteTakingApp
         }
 
         
-        // Click Events
+        // Button Click Events
         private void loadButton_Click(object sender, EventArgs e)
         {
             if (notes.Rows.Count > 0)
@@ -121,6 +122,23 @@ namespace NoteTakingApp
                 loadButton_Click(sender, e);
         }
 
+        private void deleteRecycleBinButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (deletedNotes.Rows.Count > 0)
+                {
+                    deletedNotes.Rows[recycleBin.CurrentCell.RowIndex].Delete();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Not a valid note: {ex}");
+                throw;
+            }
+        }
+
 
         // Keyboard Events
         private void NoteTaker_KeyDown(object sender, KeyEventArgs e)
@@ -186,20 +204,17 @@ namespace NoteTakingApp
             System.Diagnostics.Process.Start(targetURL);
         }
 
-        private void deleteRecycleBinButton_Click(object sender, EventArgs e)
+        private void restoreButton_Click(object sender, EventArgs e)
         {
-            try
+            if (deletedNotes.Rows.Count > 0)
             {
-                if (deletedNotes.Rows.Count > 0)
-                {
-                    deletedNotes.Rows[recycleBin.CurrentCell.RowIndex].Delete();
-                }
+                notes.Rows.Add(
+                deletedNotes.Rows[recycleBin.CurrentCell.RowIndex]["Title"],
+                deletedNotes.Rows[recycleBin.CurrentCell.RowIndex]["Text"]);
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Not a valid note: {ex}");
-                throw;
+                deletedNotes.Rows[recycleBin.CurrentCell.RowIndex].Delete();
+                SetLastDocAsActiveDoc(sender, e);
+                loadButton_Click(sender, e);
             }
         }
     }

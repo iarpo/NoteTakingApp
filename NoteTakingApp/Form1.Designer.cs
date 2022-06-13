@@ -264,6 +264,7 @@
             this.restoreButton.TabIndex = 18;
             this.restoreButton.Text = "RESTORE";
             this.restoreButton.UseVisualStyleBackColor = true;
+            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // deleteRecycleBinButton
             // 
