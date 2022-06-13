@@ -49,7 +49,7 @@
             this.recycleBinLabel = new System.Windows.Forms.Label();
             this.savedNotesLabel = new System.Windows.Forms.Label();
             this.restoreButton = new System.Windows.Forms.Button();
-            this.deleteReccleBinButton = new System.Windows.Forms.Button();
+            this.deleteRecycleBinButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).BeginInit();
@@ -265,14 +265,15 @@
             this.restoreButton.Text = "RESTORE";
             this.restoreButton.UseVisualStyleBackColor = true;
             // 
-            // deleteReccleBinButton
+            // deleteRecycleBinButton
             // 
-            this.deleteReccleBinButton.Location = new System.Drawing.Point(739, 562);
-            this.deleteReccleBinButton.Name = "deleteReccleBinButton";
-            this.deleteReccleBinButton.Size = new System.Drawing.Size(152, 44);
-            this.deleteReccleBinButton.TabIndex = 19;
-            this.deleteReccleBinButton.Text = "DELETE";
-            this.deleteReccleBinButton.UseVisualStyleBackColor = true;
+            this.deleteRecycleBinButton.Location = new System.Drawing.Point(739, 562);
+            this.deleteRecycleBinButton.Name = "deleteRecycleBinButton";
+            this.deleteRecycleBinButton.Size = new System.Drawing.Size(152, 44);
+            this.deleteRecycleBinButton.TabIndex = 19;
+            this.deleteRecycleBinButton.Text = "DELETE";
+            this.deleteRecycleBinButton.UseVisualStyleBackColor = true;
+            this.deleteRecycleBinButton.Click += new System.EventHandler(this.deleteRecycleBinButton_Click);
             // 
             // label6
             // 
@@ -293,7 +294,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(916, 634);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.deleteReccleBinButton);
+            this.Controls.Add(this.deleteRecycleBinButton);
             this.Controls.Add(this.restoreButton);
             this.Controls.Add(this.savedNotesLabel);
             this.Controls.Add(this.recycleBinLabel);
@@ -346,7 +347,7 @@
         private System.Windows.Forms.Label recycleBinLabel;
         private System.Windows.Forms.Label savedNotesLabel;
         private System.Windows.Forms.Button restoreButton;
-        private System.Windows.Forms.Button deleteReccleBinButton;
+        private System.Windows.Forms.Button deleteRecycleBinButton;
         private System.Windows.Forms.Label label6;
     }
 }

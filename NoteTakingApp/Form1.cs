@@ -185,5 +185,22 @@ namespace NoteTakingApp
             string targetURL = @"https://github.com/iarpo/NoteTakingApp";
             System.Diagnostics.Process.Start(targetURL);
         }
+
+        private void deleteRecycleBinButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (deletedNotes.Rows.Count > 0)
+                {
+                    deletedNotes.Rows[recycleBin.CurrentCell.RowIndex].Delete();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Not a valid note: {ex}");
+                throw;
+            }
+        }
     }
 }
