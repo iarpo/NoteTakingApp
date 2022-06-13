@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace NoteTakingApp
 {
-    // TODO add a recylce bin (another component with a different data source. Transfer deleted items to recycle bin
+    // TODO restore items from recyle bin to dataGridView
     // TODO improve UI of dataSource - nice fonts, don't show cells, show a nice editing indicator
     // TODO Write files to the containing folder so they persist between sessions
-
-    // BUGFIX - App crashes when double clicking empty row of dataTable.
+    // TODO open dataGridView item when double clicked
+    
 
 
     public partial class NoteTaker : Form
@@ -36,25 +36,40 @@ namespace NoteTakingApp
 
             notes.Columns.Add("Title");
             notes.Columns.Add("Text");
+            deletedNotes.Columns.Add("Title");
+            deletedNotes.Columns.Add("Text");
 
             previousNotes.DataSource = notes;
+            recycleBin.DataSource = deletedNotes;
 
         }
 
         
+        // Click Events
         private void loadButton_Click(object sender, EventArgs e)
         {
-            titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
-            noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
-            editing = true;
-
+            if (notes.Rows.Count > 0)
+            {
+                titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
+                noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
+                editing = true;
+            }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-                notes.Rows[previousNotes.CurrentCell.RowIndex].Delete();
+                if (notes.Rows.Count > 0)
+                {
+                    deletedNotes.Rows.Add(
+                    notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"],
+                    notes.Rows[previousNotes.CurrentCell.RowIndex]["Text"]);
+                
+                    notes.Rows[previousNotes.CurrentCell.RowIndex].Delete();
+                    SetLastDocAsActiveDoc(sender, e);
+                }
+
             }
             catch (Exception ex)
             {
@@ -74,8 +89,7 @@ namespace NoteTakingApp
                 notes.Rows.Add(titleBox.Text, noteBox.Text);
                 editing = true;
                 newDoc = false;
-                if (notes.Rows.Count > 1)
-                    previousNotes.CurrentCell = previousNotes.Rows[notes.Rows.Count-1].Cells[0];
+                SetLastDocAsActiveDoc(sender, e);
             }
             else if (editing)
             {
@@ -87,6 +101,16 @@ namespace NoteTakingApp
                 notes.Rows.Add(titleBox.Text, noteBox.Text);
                 editing = true;
             }
+        }
+
+        private void SetLastDocAsActiveDoc(object sender, EventArgs e)
+        {
+            if (notes.Rows.Count == 0)
+                newButton_Click (sender, e);
+            else if (notes.Rows.Count > 1)
+                previousNotes.CurrentCell = previousNotes.Rows[notes.Rows.Count - 1].Cells[0];
+            else
+                previousNotes.CurrentCell = previousNotes.Rows[0].Cells[0];
         }
 
         private void newButton_Click(object sender, EventArgs e)
@@ -108,6 +132,7 @@ namespace NoteTakingApp
         }
 
 
+        // Keyboard Events
         private void NoteTaker_KeyDown(object sender, KeyEventArgs e)
         {
             // new
@@ -154,6 +179,7 @@ namespace NoteTakingApp
         }
 
 
+        // Mouse Events
         private void iarpoAvatar_MouseEnter(object sender, EventArgs e)
         {
             iarpoAvatar.BorderStyle = BorderStyle.Fixed3D;

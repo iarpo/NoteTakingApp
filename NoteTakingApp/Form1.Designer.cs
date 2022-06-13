@@ -45,9 +45,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.iarpoAvatar = new System.Windows.Forms.PictureBox();
             this.avatarBlank = new System.Windows.Forms.PictureBox();
+            this.recycleBin = new System.Windows.Forms.DataGridView();
+            this.recycleBinLabel = new System.Windows.Forms.Label();
+            this.savedNotesLabel = new System.Windows.Forms.Label();
+            this.restoreButton = new System.Windows.Forms.Button();
+            this.deleteReccleBinButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBlank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recycleBin)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -60,7 +67,7 @@
             this.titleBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.titleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.titleBox.Location = new System.Drawing.Point(26, 37);
+            this.titleBox.Location = new System.Drawing.Point(17, 35);
             this.titleBox.Name = "titleBox";
             this.titleBox.Size = new System.Drawing.Size(538, 29);
             this.titleBox.TabIndex = 1;
@@ -70,10 +77,10 @@
             this.noteBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.noteBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noteBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.noteBox.Location = new System.Drawing.Point(26, 95);
+            this.noteBox.Location = new System.Drawing.Point(18, 98);
             this.noteBox.Multiline = true;
             this.noteBox.Name = "noteBox";
-            this.noteBox.Size = new System.Drawing.Size(538, 361);
+            this.noteBox.Size = new System.Drawing.Size(538, 510);
             this.noteBox.TabIndex = 2;
             // 
             // label1
@@ -81,7 +88,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label1.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label1.Location = new System.Drawing.Point(22, 9);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(542, 23);
             this.label1.TabIndex = 3;
@@ -92,7 +99,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label2.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(22, 69);
+            this.label2.Location = new System.Drawing.Point(14, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(542, 23);
             this.label2.TabIndex = 4;
@@ -100,18 +107,21 @@
             // 
             // previousNotes
             // 
+            this.previousNotes.AllowUserToAddRows = false;
+            this.previousNotes.AllowUserToOrderColumns = true;
             this.previousNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.previousNotes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.previousNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousNotes.Location = new System.Drawing.Point(570, 114);
+            this.previousNotes.Location = new System.Drawing.Point(581, 149);
             this.previousNotes.Name = "previousNotes";
-            this.previousNotes.Size = new System.Drawing.Size(310, 240);
+            this.previousNotes.ReadOnly = true;
+            this.previousNotes.Size = new System.Drawing.Size(310, 179);
             this.previousNotes.TabIndex = 5;
             this.previousNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellDoubleClick);
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(570, 412);
+            this.saveButton.Location = new System.Drawing.Point(581, 384);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(152, 44);
             this.saveButton.TabIndex = 6;
@@ -121,7 +131,7 @@
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(570, 360);
+            this.loadButton.Location = new System.Drawing.Point(581, 334);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(152, 44);
             this.loadButton.TabIndex = 7;
@@ -131,7 +141,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(728, 360);
+            this.deleteButton.Location = new System.Drawing.Point(739, 334);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(152, 44);
             this.deleteButton.TabIndex = 8;
@@ -141,7 +151,7 @@
             // 
             // newButton
             // 
-            this.newButton.Location = new System.Drawing.Point(728, 412);
+            this.newButton.Location = new System.Drawing.Point(739, 384);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(152, 44);
             this.newButton.TabIndex = 9;
@@ -154,9 +164,9 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label3.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label3.Location = new System.Drawing.Point(647, 61);
+            this.label3.Location = new System.Drawing.Point(655, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 23);
+            this.label3.Size = new System.Drawing.Size(162, 23);
             this.label3.TabIndex = 10;
             this.label3.Text = "Save: Ctrl + S";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,9 +176,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label4.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label4.Location = new System.Drawing.Point(650, 37);
+            this.label4.Location = new System.Drawing.Point(655, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 23);
+            this.label4.Size = new System.Drawing.Size(162, 23);
             this.label4.TabIndex = 11;
             this.label4.Text = "New: Ctrl + N";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,9 +188,9 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.label5.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label5.Location = new System.Drawing.Point(647, 84);
+            this.label5.Location = new System.Drawing.Point(655, 84);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 23);
+            this.label5.Size = new System.Drawing.Size(162, 23);
             this.label5.TabIndex = 12;
             this.label5.Text = "Load: Ctrl + O";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,7 +199,7 @@
             // 
             this.iarpoAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iarpoAvatar.Image = ((System.Drawing.Image)(resources.GetObject("iarpoAvatar.Image")));
-            this.iarpoAvatar.Location = new System.Drawing.Point(805, 38);
+            this.iarpoAvatar.Location = new System.Drawing.Point(820, 37);
             this.iarpoAvatar.Margin = new System.Windows.Forms.Padding(0);
             this.iarpoAvatar.Name = "iarpoAvatar";
             this.iarpoAvatar.Size = new System.Drawing.Size(71, 70);
@@ -203,7 +213,7 @@
             // avatarBlank
             // 
             this.avatarBlank.Image = ((System.Drawing.Image)(resources.GetObject("avatarBlank.Image")));
-            this.avatarBlank.Location = new System.Drawing.Point(570, 37);
+            this.avatarBlank.Location = new System.Drawing.Point(581, 37);
             this.avatarBlank.Margin = new System.Windows.Forms.Padding(0);
             this.avatarBlank.Name = "avatarBlank";
             this.avatarBlank.Size = new System.Drawing.Size(71, 70);
@@ -212,12 +222,82 @@
             this.avatarBlank.TabStop = false;
             this.avatarBlank.Click += new System.EventHandler(this.avatarBlank_Click);
             // 
+            // recycleBin
+            // 
+            this.recycleBin.AllowUserToAddRows = false;
+            this.recycleBin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recycleBin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recycleBin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.recycleBin.Location = new System.Drawing.Point(581, 464);
+            this.recycleBin.Name = "recycleBin";
+            this.recycleBin.ReadOnly = true;
+            this.recycleBin.Size = new System.Drawing.Size(310, 92);
+            this.recycleBin.TabIndex = 15;
+            // 
+            // recycleBinLabel
+            // 
+            this.recycleBinLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.recycleBinLabel.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recycleBinLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
+            this.recycleBinLabel.Location = new System.Drawing.Point(576, 438);
+            this.recycleBinLabel.Name = "recycleBinLabel";
+            this.recycleBinLabel.Size = new System.Drawing.Size(315, 23);
+            this.recycleBinLabel.TabIndex = 16;
+            this.recycleBinLabel.Text = "RECYCLE BIN";
+            // 
+            // savedNotesLabel
+            // 
+            this.savedNotesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.savedNotesLabel.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savedNotesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
+            this.savedNotesLabel.Location = new System.Drawing.Point(576, 123);
+            this.savedNotesLabel.Name = "savedNotesLabel";
+            this.savedNotesLabel.Size = new System.Drawing.Size(315, 23);
+            this.savedNotesLabel.TabIndex = 17;
+            this.savedNotesLabel.Text = "SAVED NOTES";
+            // 
+            // restoreButton
+            // 
+            this.restoreButton.Location = new System.Drawing.Point(581, 562);
+            this.restoreButton.Name = "restoreButton";
+            this.restoreButton.Size = new System.Drawing.Size(152, 44);
+            this.restoreButton.TabIndex = 18;
+            this.restoreButton.Text = "RESTORE";
+            this.restoreButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteReccleBinButton
+            // 
+            this.deleteReccleBinButton.Location = new System.Drawing.Point(739, 562);
+            this.deleteReccleBinButton.Name = "deleteReccleBinButton";
+            this.deleteReccleBinButton.Size = new System.Drawing.Size(152, 44);
+            this.deleteReccleBinButton.TabIndex = 19;
+            this.deleteReccleBinButton.Text = "DELETE";
+            this.deleteReccleBinButton.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.label6.Location = new System.Drawing.Point(581, 609);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(310, 23);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Copyright Seb Corson 2022";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // NoteTaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(909, 492);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ClientSize = new System.Drawing.Size(916, 634);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.deleteReccleBinButton);
+            this.Controls.Add(this.restoreButton);
+            this.Controls.Add(this.savedNotesLabel);
+            this.Controls.Add(this.recycleBinLabel);
+            this.Controls.Add(this.recycleBin);
             this.Controls.Add(this.avatarBlank);
             this.Controls.Add(this.iarpoAvatar);
             this.Controls.Add(this.label5);
@@ -239,6 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBlank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recycleBin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +342,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox iarpoAvatar;
         private System.Windows.Forms.PictureBox avatarBlank;
+        private System.Windows.Forms.DataGridView recycleBin;
+        private System.Windows.Forms.Label recycleBinLabel;
+        private System.Windows.Forms.Label savedNotesLabel;
+        private System.Windows.Forms.Button restoreButton;
+        private System.Windows.Forms.Button deleteReccleBinButton;
+        private System.Windows.Forms.Label label6;
     }
 }
 
