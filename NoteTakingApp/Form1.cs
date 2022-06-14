@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace NoteTakingApp
 {
-    // TODO restore items from recyle bin to dataGridView
     // TODO improve UI of dataSource - nice fonts, don't show cells, show a nice editing indicator
     // TODO Write files to the containing folder so they persist between sessions
     
@@ -163,7 +162,52 @@ namespace NoteTakingApp
                 HandleSystemKeyPress(e);
             }
 
+            // load previous note
+            if (ControlAndLetterKeyboardShortcutCheck(sender, e, Keys.Up))
+            {
+                LoadNextOrPreviousNote(sender, e, false);
+                HandleSystemKeyPress(e);
+            }
 
+            // load next note
+            if (ControlAndLetterKeyboardShortcutCheck(sender, e, Keys.Down))
+            {
+                LoadNextOrPreviousNote(sender, e, true);
+                HandleSystemKeyPress(e);
+            }
+
+        }
+
+        private void LoadNextOrPreviousNote(object sender, KeyEventArgs e, bool shouldBeNextNote)
+        {
+            if (notes.Rows.Count > 0)
+            {
+                int currentNoteIndex = CurrentNoteIndex();
+                
+
+                // get current index
+                if (!shouldBeNextNote && CurrentNoteIndex() == 0)
+                {
+                    currentNoteIndex = notes.Rows.Count;
+                }
+                else if ( shouldBeNextNote && (currentNoteIndex+2) > notes.Rows.Count)
+                {
+                    currentNoteIndex = -1;
+                }
+
+                // load note
+                previousNotes.CurrentCell = shouldBeNextNote ? 
+                    previousNotes.Rows[currentNoteIndex + 1].Cells[0] : 
+                    previousNotes.Rows[currentNoteIndex - 1].Cells[0];
+
+            }
+
+            loadButton_Click(sender, e);
+        }
+
+        private int CurrentNoteIndex()
+        {
+            return previousNotes.CurrentCell.RowIndex;
         }
 
         private static void HandleSystemKeyPress(KeyEventArgs e)
@@ -179,7 +223,6 @@ namespace NoteTakingApp
             else
                 return false;
         }
-
 
         private void avatarBlank_Click(object sender, EventArgs e)
         {

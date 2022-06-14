@@ -51,6 +51,8 @@
             this.restoreButton = new System.Windows.Forms.Button();
             this.deleteRecycleBinButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.previousNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iarpoAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBlank)).BeginInit();
@@ -112,10 +114,10 @@
             this.previousNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.previousNotes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.previousNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousNotes.Location = new System.Drawing.Point(581, 149);
+            this.previousNotes.Location = new System.Drawing.Point(581, 172);
             this.previousNotes.Name = "previousNotes";
             this.previousNotes.ReadOnly = true;
-            this.previousNotes.Size = new System.Drawing.Size(310, 179);
+            this.previousNotes.Size = new System.Drawing.Size(310, 156);
             this.previousNotes.TabIndex = 5;
             this.previousNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellDoubleClick);
             // 
@@ -288,12 +290,38 @@
             this.label6.Text = "Copyright Seb Corson 2022";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label7.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
+            this.label7.Location = new System.Drawing.Point(734, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(157, 23);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Prev: Ctrl + Up";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label8.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
+            this.label8.Location = new System.Drawing.Point(734, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(157, 23);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Next: Ctrl + Down";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // NoteTaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(916, 634);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.deleteRecycleBinButton);
             this.Controls.Add(this.restoreButton);
@@ -350,6 +378,8 @@
         private System.Windows.Forms.Button restoreButton;
         private System.Windows.Forms.Button deleteRecycleBinButton;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
