@@ -37,8 +37,7 @@ namespace NoteTakingApp
             deletedNotes.Columns.Add("Text");
 
             previousNotes.DataSource = notes;
-            recycleBin.DataSource = deletedNotes;
-
+            recycleBin.DataSource = deletedNotes;            
         }
 
         
@@ -50,6 +49,11 @@ namespace NoteTakingApp
                 titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
                 noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
                 editing = true;
+                // focus carat at end of text field
+
+                noteBox.Focus();
+                noteBox.SelectionStart = noteBox.Text.Length;
+                noteBox.SelectionLength = 0;
             }
         }
 
