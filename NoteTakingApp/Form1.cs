@@ -264,5 +264,22 @@ namespace NoteTakingApp
                 loadButton_Click(sender, e);
             }
         }
+
+        private void avatarBlank_MouseClick(object sender, MouseEventArgs e)
+        {
+            using (OpenFileDialog fileDialog = new OpenFileDialog())
+            {
+                fileDialog.Title = "CHOOSE YOUR IMAGE MORTAL";
+                fileDialog.Filter = "jpg files (*.jpg)|*.jpg";
+                // TODO allow more image types but also keep files restricted to graphics
+                // TODO Set a file size limit
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    avatarBlank.Image = new Bitmap(fileDialog.FileName);
+                }
+            }
+
+        }
     }
 }
