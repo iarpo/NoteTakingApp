@@ -163,7 +163,7 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
             this.label3.Location = new System.Drawing.Point(729, 59);
@@ -175,7 +175,7 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
             this.label4.Location = new System.Drawing.Point(729, 35);
@@ -187,10 +187,10 @@
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label5.Location = new System.Drawing.Point(729, 84);
+            this.label5.Location = new System.Drawing.Point(729, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 23);
             this.label5.TabIndex = 12;
@@ -214,6 +214,7 @@
             // 
             // avatarBlank
             // 
+            this.avatarBlank.Cursor = System.Windows.Forms.Cursors.Hand;
             this.avatarBlank.Image = ((System.Drawing.Image)(resources.GetObject("avatarBlank.Image")));
             this.avatarBlank.Location = new System.Drawing.Point(584, 20);
             this.avatarBlank.Margin = new System.Windows.Forms.Padding(0);
@@ -250,12 +251,12 @@
             // 
             // savedNotesLabel
             // 
-            this.savedNotesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.savedNotesLabel.BackColor = System.Drawing.Color.Transparent;
             this.savedNotesLabel.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savedNotesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
             this.savedNotesLabel.Location = new System.Drawing.Point(579, 130);
             this.savedNotesLabel.Name = "savedNotesLabel";
-            this.savedNotesLabel.Size = new System.Drawing.Size(315, 23);
+            this.savedNotesLabel.Size = new System.Drawing.Size(129, 23);
             this.savedNotesLabel.TabIndex = 17;
             this.savedNotesLabel.Text = "SAVED NOTES";
             // 
@@ -293,10 +294,10 @@
             // 
             // label7
             // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label7.Location = new System.Drawing.Point(734, 107);
+            this.label7.Location = new System.Drawing.Point(734, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(157, 23);
             this.label7.TabIndex = 21;
@@ -305,10 +306,10 @@
             // 
             // label8
             // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Impact", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(80)))));
-            this.label8.Location = new System.Drawing.Point(734, 130);
+            this.label8.Location = new System.Drawing.Point(734, 105);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 23);
             this.label8.TabIndex = 22;
@@ -321,6 +322,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(916, 634);
+            this.Controls.Add(this.iarpoAvatar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -330,7 +332,6 @@
             this.Controls.Add(this.recycleBinLabel);
             this.Controls.Add(this.recycleBin);
             this.Controls.Add(this.avatarBlank);
-            this.Controls.Add(this.iarpoAvatar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

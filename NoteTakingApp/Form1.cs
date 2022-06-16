@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace NoteTakingApp
 {
@@ -16,11 +18,13 @@ namespace NoteTakingApp
     public partial class NoteTaker : Form
     {
 
-        DataTable notes = new DataTable();
-        DataTable deletedNotes = new DataTable();
-
+        DataTable notes = new DataTable("ActiveNotes_NoteTakingapp");
+        DataTable deletedNotes = new DataTable("DeletedNotes_NoteTakingapp");
+            
         bool editing = false;
         bool newDoc = true;
+
+        string _folder, _fullPath;
 
         public NoteTaker()
         {
@@ -30,17 +34,29 @@ namespace NoteTakingApp
         private void NoteTaker_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
-
-            notes.Columns.Add("Title");
-            notes.Columns.Add("Text");
-            deletedNotes.Columns.Add("Title");
-            deletedNotes.Columns.Add("Text");
-
             previousNotes.DataSource = notes;
-            recycleBin.DataSource = deletedNotes;            
+            recycleBin.DataSource = deletedNotes;
+            
+            try
+            {
+                //notes.WriteXml(_fullPath, XmlWriteMode.WriteSchema);
+                notes.ReadXml(_fullPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Your feeble file has failed to load mortal: " + ex.Message);
+            }
+
+            notes.Columns.Add("Title", typeof(System.String));
+            notes.Columns.Add("Text", typeof(System.String));
+            notes.AcceptChanges();
+            
+            deletedNotes.Columns.Add("Title", typeof(System.String));
+            deletedNotes.Columns.Add("Text", typeof(System.String));
+
         }
 
-        
+
         // Button Click Events
         private void loadButton_Click(object sender, EventArgs e)
         {
@@ -98,6 +114,25 @@ namespace NoteTakingApp
                 notes.Rows.Add(titleBox.Text, noteBox.Text);
                 editing = true;
             }
+
+            SetFilePathAndFileName(out _folder, out _fullPath);
+            CreateSavedFileDirectory(_folder);
+            notes.WriteXml(_fullPath);
+            
+        }
+
+        private static void SetFilePathAndFileName(out string folder, out string fullPath)
+        {
+            // file:///C:/Users/sebco/Documents/NoteTakingApp/SavedNotes_NoteTakingApp.xml
+            folder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile).ToString() + @"\Documents\NoteTakingApp\";
+            string fileName = "SavedNotes_NoteTakingApp.xml";
+            fullPath = folder + fileName;
+        }
+
+        private static void CreateSavedFileDirectory(string folder)
+        {
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
         }
 
         private void SetLastDocAsActiveDoc(object sender, EventArgs e)
