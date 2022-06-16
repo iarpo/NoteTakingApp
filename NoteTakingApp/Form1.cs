@@ -34,26 +34,36 @@ namespace NoteTakingApp
         private void NoteTaker_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+            
+            SetFilePathAndFileName(out _folder, out _fullPath);
+            LoadSavedDataTable();
+            notes.AcceptChanges();
+
+            deletedNotes.Columns.Add("Title", typeof(System.String));
+            deletedNotes.Columns.Add("Text", typeof(System.String));
+
             previousNotes.DataSource = notes;
             recycleBin.DataSource = deletedNotes;
             
+        }
+
+        private void LoadSavedDataTable()
+        {
+            Stream stream = File.OpenRead(_fullPath);
+            XmlReader xmlreader = XmlReader.Create(stream);
+            
             try
             {
-                //notes.WriteXml(_fullPath, XmlWriteMode.WriteSchema);
-                notes.ReadXml(_fullPath);
+                notes.ReadXmlSchema(xmlreader);
+                notes.ReadXml(xmlreader);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Your feeble file has failed to load mortal: " + ex.Message);
+                notes.Columns.Add("Title", typeof(System.String));
+                notes.Columns.Add("Text", typeof(System.String));
             }
-
-            notes.Columns.Add("Title", typeof(System.String));
-            notes.Columns.Add("Text", typeof(System.String));
-            notes.AcceptChanges();
-            
-            deletedNotes.Columns.Add("Title", typeof(System.String));
-            deletedNotes.Columns.Add("Text", typeof(System.String));
-
+            stream.Close();
         }
 
 
@@ -117,13 +127,12 @@ namespace NoteTakingApp
 
             SetFilePathAndFileName(out _folder, out _fullPath);
             CreateSavedFileDirectory(_folder);
-            notes.WriteXml(_fullPath);
+            notes.WriteXml(_fullPath, XmlWriteMode.WriteSchema);
             
         }
 
         private static void SetFilePathAndFileName(out string folder, out string fullPath)
         {
-            // file:///C:/Users/sebco/Documents/NoteTakingApp/SavedNotes_NoteTakingApp.xml
             folder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile).ToString() + @"\Documents\NoteTakingApp\";
             string fileName = "SavedNotes_NoteTakingApp.xml";
             fullPath = folder + fileName;
@@ -298,6 +307,11 @@ namespace NoteTakingApp
                 SetLastDocAsActiveDoc(sender, e);
                 loadButton_Click(sender, e);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LoadSavedDataTable();
         }
 
         private void avatarBlank_MouseClick(object sender, MouseEventArgs e)
